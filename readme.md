@@ -37,7 +37,7 @@ spring.datasource.password=your_password
 
 ### 3. 启动方式
 
-运行入口类： `.\src\main\java\com\xzy\nwpusurvivalmanual\Application.java`
+运行入口类： `.\src\main\java\com\bzh\nwpusurvivalmanual\Application.java`
 
 - 服务默认端口：`localhost:8088`
 - 接口测试：项目中 `http test` 目录下包含部分 `.http` 请求文件，可使用 IntelliJ IDEA 自带的 HTTP Client 进行接口调试。
