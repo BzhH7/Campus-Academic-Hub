@@ -42,4 +42,6 @@ public interface CourseService {
     int getValueBetweenCourses(String first, String second);
 
     int getValueBetweenCoursesByName(String first, String second);
+
+    List<String> selectAllLabels();
 }

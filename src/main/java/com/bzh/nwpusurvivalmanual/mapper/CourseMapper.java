@@ -77,4 +77,8 @@ public interface CourseMapper {
     @Select("select value from crelation r,course c1,course c2 where c1.cname=#{first} and c2.cname=#{second}" +
             " and r.fcno=c1.cno and r.scno=c2.cno limit 1;")
     int getValueBetweenCoursesByName(@Param("first")String first, @Param("second")String second);
+
+    // 查询所有存在的标签（自动去重）
+    @Select("SELECT DISTINCT label FROM clabel")
+    List<String> selectAllLabels();
 }

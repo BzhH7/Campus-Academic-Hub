@@ -3,7 +3,7 @@
 		<el-row :gutter="20">
 			<el-col :span="24">
           <el-card shadow="hover" class="mgb20" style="height: 100%">
-            <div id="myChart" :style="{width: '1600px', height: '1080px'}"></div>
+            <div id="myChart" v-loading="loading" :element-loading-text="loadingText" :style="{width: '100%', height: '80vh'}"></div>
           </el-card>
 			</el-col>
 		</el-row>
@@ -11,252 +11,162 @@
 </template>
 
 <script setup lang="ts" name="dashboard">
-import Schart from 'vue-schart';
-import { reactive, ref } from 'vue';
-import imgurl from '../assets/img/img.jpg';
-import {onMounted} from 'vue';
-// Echarts 为init（dom元素后的类型）
-// EChartsOption 为 option 的类型
-import {ECharts, EChartsOption, init} from 'echarts';
-import {getRelationByNames, selectCourseByLabel} from "../api";
-import {ElMessage} from "element-plus";
-import { ElLoading } from 'element-plus'
-let loading = true
-const name = localStorage.getItem('ms_username');
-const role: string = name === 'admin' ? '超级管理员' : '普通用户';
+import { onMounted, ref } from 'vue';
+import { ECharts, EChartsOption, init } from 'echarts';
+// 注意：这里引入了新增的 getAllLabels
+import { getRelationByNames, selectCourseByLabel, getAllLabels } from "../api";
+import { ElMessage } from "element-plus";
 
-async function waitAsync (ms: number): Promise<void> {
-  return new Promise<void>((resolve) => {
-    setTimeout(resolve, ms)
-  })
-}
-onMounted(() => {
-  const labels = ['计算机视觉', '机器人', '数学基础'];
-  const course_with_labels: any[] = []
-  const edges_with_labels: any[] = []
-  const loadingInstance=ElLoading.service({fullscreen:true})
-  for(let i = 0; i<labels.length; i++){
-      selectCourseByLabel(labels[i]).then(res=>{
-        if(res.data.code==200){
-          course_with_labels.push(...res.data.data)
-        }else{
-          ElMessage.error(res.data.message);
-        }
-      })
+const loading = ref(true);
+const loadingText = ref("正在探测数据库中的课程标签...");
+
+onMounted(async () => {
+  const course_with_labels: any[] = [];
+  const edges_with_labels: any[] = [];
+  let labels: string[] = [];
+
+  // ------------------------------------------------
+  // 第一步：自动获取数据库里所有的标签
+  // ------------------------------------------------
+  try {
+    const labelRes = await getAllLabels();
+    if (labelRes.data.code === 200 && labelRes.data.data.length > 0) {
+      labels = labelRes.data.data;
+      console.log("检测到标签：", labels);
+      loadingText.value = `检测到 ${labels.length} 个标签，正在加载课程数据...`;
+    } else {
+      ElMessage.warning("数据库中没有检测到任何标签，请先运行数据生成脚本！");
+      loading.value = false;
+      return;
+    }
+  } catch (e) {
+    ElMessage.error("连接后端失败，请检查后端是否启动");
+    loading.value = false;
+    return;
   }
 
-  waitAsync(500).then(res=>{
-    for(let i = 0;i<course_with_labels.length;i++){
-      for(let j=0;j<course_with_labels.length;j++){
-        if(i == j){
-          continue;
-        }else{
-          getRelationByNames(course_with_labels[i]['name'], course_with_labels[j]['name']).then(res=>{
-            if(res.data.code==404){
-            }else{
-              console.log(res.data)
-              edges_with_labels.push({source:course_with_labels[i]['name'], target:course_with_labels[j]['name'],lineStyle:{
-                  width: res.data.data,
-                }})
-            }
-          })
-        }
+  // ------------------------------------------------
+  // 第二步：根据检测到的标签，并行获取课程节点
+  // ------------------------------------------------
+  try {
+    const nodePromises = labels.map(label => selectCourseByLabel(label));
+    const results = await Promise.all(nodePromises);
+
+    results.forEach((res, index) => {
+      if (res.data.code === 200) {
+        const nodes = res.data.data.map((item: any) => ({
+          ...item,
+          category: labels[index] // 绑定正确的分类
+        }));
+        course_with_labels.push(...nodes);
       }
+    });
+  } catch (error) {
+    console.error(error);
+  }
+
+  // 去重（防止同一个课程有多个标签导致节点重复）
+  const uniqueNodes = Array.from(new Map(course_with_labels.map(item => [item.name, item])).values());
+
+  if (uniqueNodes.length === 0) {
+    ElMessage.warning("标签下没有关联任何课程！");
+    loading.value = false;
+    return;
+  }
+
+  loadingText.value = "正在构建课程关系网...";
+
+  // ------------------------------------------------
+  // 第三步：建立连线关系
+  // ------------------------------------------------
+  const relationPromises = [];
+  // 限制计算量，防止浏览器卡死
+  const limitNode = Math.min(uniqueNodes.length, 60); 
+
+  for (let i = 0; i < limitNode; i++) {
+    for (let j = i + 1; j < limitNode; j++) {
+        const p = getRelationByNames(uniqueNodes[i]['name'], uniqueNodes[j]['name'])
+          .then(res => {
+            if (res.data.code !== 404 && res.data.data > 0) {
+              edges_with_labels.push({
+                source: uniqueNodes[i]['name'],
+                target: uniqueNodes[j]['name'],
+                lineStyle: { width: res.data.data }
+              });
+            }
+          }).catch(() => {});
+        relationPromises.push(p);
     }
-    waitAsync(3000).then(res=>{
-      loadingInstance.close()
-      //console.log(edges_with_labels)
-      const myChart = document.getElementById('myChart') as HTMLElement;
+  }
 
-      const charEch:ECharts=init(myChart);
-      const option:EChartsOption = {
-        backgroundColor: '#ffffff',
-        color: [
-          '#8ECFC9',
-          '#FFBE7A',
-          '#FA7F6F',
-          '#82B0D2'
-        ],
-        title: {
-          text: '课程关系图',
-          textStyle: {
-            color: '#00ccff',
-            fontWeight: 700,
-            fontSize: 30,
-          }
-        }, // 标题及标题颜色、尺寸、位置
-        legend: [ // 增加图示标签，我们可以点击图示隐藏相关节点
-          {
-            show: true,
-            data: labels
-          }],
-        series: [
-          {
-            type: 'graph', // 类型设置为关系图
-            legendHoverLink: true,  // 可以点击图例来隐藏一个组
-            layout: 'force',
-            categories: [
-              {name: '计算机视觉', symbolSize: 60},
-              {name: '机器人', symbolSize: 60},
-              {name: '数学基础', symbolSize: 60},
-            ],
-            force: {
-              repulsion: [1000, 1200], //每个节点之间的斥力因子，越大离的越远
-              layoutAnimation: true,
-              friction: 0.3, //刷新时节点的移动速度，越大越快，0 - 1 之间
-              edgeLength: [100, 130] //两节点之间的距离
-            },
+  await Promise.all(relationPromises);
 
-            label: {
-              show: true, // 节点圆盘上的文字
-              fontStyle: 'italic', //文字风格，normal，italic，oblique 三种可选
-              fontSize: 12,
-              color: '#000000',
-            },
-            symbolSize: 60, //全局节点尺寸
-            itemStyle: {  // 给节点加上阴影，显着立体
-              shadowColor: '#C0C0C0',
-              shadowOffsetX: 2,
-              shadowOffsetY: 2
-            },
-            //让节点可以通过鼠标拖拽和移动的设置
-            roam: true, //开启鼠标平移及缩放
-            draggable: true, //节点是否支持鼠标拖拽。
-            edgeSymbol: ['circle', 'arrow'],//两节点连线的样式
-            edgeSymbolSize: [5, 10],
-            cursor: 'pointer', //鼠标悬浮时在图形元素上时鼠标的样式
-            labelLayout: {
-              moveOverlap: 'shiftX', //标签重叠时，挪动标签防止重叠
-              draggable: true //节点标签是否允许鼠标拖拽定位
-            },
-            emphasis: {
-              scale: true, //节点放大效果
-              focus: 'adjacency'
-            },
-            lineStyle: {
-              color: '#3d3d3f',
-              width: 2,
-              curveness: 0 //节点连线的曲率，0-1 越大越弯。
-            },
-
-            data: course_with_labels,
-            links: edges_with_labels
-          }
-        ]
-      };
-      charEch.setOption(option)
-    })
-
-    // 绘制图表
-  })
-  // course_with_labels.push({name:'计算机视觉', category:'计算机视觉'})
-
-
+  // ------------------------------------------------
+  // 第四步：渲染图表
+  // ------------------------------------------------
+  loading.value = false;
+  initChart(uniqueNodes, edges_with_labels, labels);
 });
 
+function initChart(nodes: any[], links: any[], categories: string[]) {
+  const myChartEl = document.getElementById('myChart');
+  if (!myChartEl) return;
+
+  // 销毁旧实例，防止缓存
+  let charEch = init(myChartEl);
+  
+  const option: EChartsOption = {
+    backgroundColor: '#ffffff',
+    // 自动生成更多颜色
+    color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'],
+    title: {
+      text: '课程知识图谱 (自动生成)',
+      subtext: `自动检测到 ${categories.length} 类标签，包含 ${nodes.length} 门课程`,
+      textStyle: { fontWeight: 700, fontSize: 24 }
+    },
+    tooltip: {},
+    legend: [{
+      data: categories,
+      orient: 'vertical',
+      right: 10,
+      top: 'center'
+    }],
+    series: [
+      {
+        type: 'graph',
+        layout: 'force',
+        categories: categories.map(l => ({ name: l })),
+        force: {
+          repulsion: 400,
+          edgeLength: [50, 150]
+        },
+        label: {
+          show: true,
+          position: 'right'
+        },
+        symbolSize: 40,
+        roam: true,
+        draggable: true,
+        edgeSymbol: ['circle', 'arrow'],
+        edgeSymbolSize: [4, 10],
+        lineStyle: {
+          color: 'source',
+          curveness: 0.3
+        },
+        data: nodes.map(n => ({
+          name: n.name,
+          category: categories.findIndex(l => l === n.category),
+          symbolSize: 40 + (Math.random() * 15)
+        })),
+        links: links
+      }
+    ]
+  };
+  charEch.setOption(option);
+  window.addEventListener('resize', () => charEch.resize());
+}
 </script>
 
 <style scoped>
-.el-row {
-	margin-bottom: 20px;
-}
-
-.grid-content {
-	display: flex;
-	align-items: center;
-	height: 100px;
-}
-
-.grid-cont-right {
-	flex: 1;
-	text-align: center;
-	font-size: 14px;
-	color: #999;
-}
-
-.grid-num {
-	font-size: 30px;
-	font-weight: bold;
-}
-
-.grid-con-icon {
-	font-size: 50px;
-	width: 100px;
-	height: 100px;
-	text-align: center;
-	line-height: 100px;
-	color: #fff;
-}
-
-.grid-con-1 .grid-con-icon {
-	background: rgb(45, 140, 240);
-}
-
-.grid-con-1 .grid-num {
-	color: rgb(45, 140, 240);
-}
-
-.grid-con-2 .grid-con-icon {
-	background: rgb(100, 213, 114);
-}
-
-.grid-con-2 .grid-num {
-	color: rgb(100, 213, 114);
-}
-
-.grid-con-3 .grid-con-icon {
-	background: rgb(242, 94, 67);
-}
-
-.grid-con-3 .grid-num {
-	color: rgb(242, 94, 67);
-}
-
-.user-info {
-	display: flex;
-	align-items: center;
-	padding-bottom: 20px;
-	border-bottom: 2px solid #ccc;
-	margin-bottom: 20px;
-}
-
-.user-info-cont {
-	padding-left: 50px;
-	flex: 1;
-	font-size: 14px;
-	color: #999;
-}
-
-.user-info-cont div:first-child {
-	font-size: 30px;
-	color: #222;
-}
-
-.user-info-list {
-	font-size: 14px;
-	color: #999;
-	line-height: 25px;
-}
-
-.user-info-list span {
-	margin-left: 70px;
-}
-
-.mgb20 {
-	margin-bottom: 20px;
-}
-
-.todo-item {
-	font-size: 14px;
-}
-
-.todo-item-del {
-	text-decoration: line-through;
-	color: #999;
-}
-
-.schart {
-	width: 100%;
-	height: 300px;
-}
+.mgb20 { margin-bottom: 20px; }
 </style>

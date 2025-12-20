@@ -3,7 +3,7 @@
 from cmath import nan
 import MySQLdb
 
-db = MySQLdb.connect("localhost", "root", "2001929yyh", "nsm")
+db = MySQLdb.connect("localhost", "root", "248433", "nsm")
 cursor = db.cursor()
 keyword = input("请输入关键词语： ")
 

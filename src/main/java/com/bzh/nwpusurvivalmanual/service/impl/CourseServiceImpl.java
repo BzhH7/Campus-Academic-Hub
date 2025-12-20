@@ -71,4 +71,9 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public int getValueBetweenCoursesByName(String first, String second){return this.courseMapper.getValueBetweenCoursesByName(first, second);}
+
+    @Override
+    public List<String> selectAllLabels() {
+        return courseMapper.selectAllLabels();
+    }
 }

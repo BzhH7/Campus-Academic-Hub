@@ -172,4 +172,15 @@ public class CourseController {
             return Result.fail(e.getMessage(), 404, "select error");
         }
     }
+
+    @RequestMapping(value = "course/labels", method = RequestMethod.GET)
+    @ResponseBody
+    public Result getAllLabels(){
+        try {
+            List<String> labels = courseService.selectAllLabels();
+            return Result.success(labels);
+        }catch (Exception e){
+            return Result.fail(null, 500, "get labels error");
+        }
+    }
 }

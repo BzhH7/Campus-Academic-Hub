@@ -130,3 +130,10 @@ export const getRelationByNames = (first:string, second:string)=>{
         method: 'get',
     })
 }
+
+export const getAllLabels = () => {
+    return request({
+        url: 'http://localhost:8088/course/labels',
+        method: 'get'
+    });
+};
