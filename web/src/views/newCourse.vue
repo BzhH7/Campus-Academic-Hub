@@ -14,7 +14,7 @@
         <el-form-item label="开课部门" prop="dname">
           <el-input v-model="form.dname"></el-input>
         </el-form-item>
-        <el-form-item label="设置学分" prop="dname">
+        <el-form-item label="设置学分" prop="credit">
           <el-input v-model="form.credit"></el-input>
         </el-form-item>
         <el-form-item label="课程类别" prop="cclf">
@@ -33,10 +33,10 @@
         <el-form-item label="是否考试" prop="exam">
           <el-switch v-model="form.exam_"></el-switch>
         </el-form-item>
-        <el-form-item label="人数上限" prop="exam">
+        <el-form-item label="人数上限" prop="slimit">
           <el-slider v-model="form.slimit" :step="10" show-stops />
         </el-form-item>
-        <el-form-item label="上课时间" prop="exam">
+        <el-form-item label="上课时间" prop="csche">
           <el-input type="textarea" rows="3" v-model="form.csche"></el-input>
         </el-form-item>
         <el-form-item label="开课校区" prop="campus">
@@ -59,10 +59,16 @@
 
 <script setup lang="ts" name="baseform">
 import { reactive, ref } from 'vue';
-import {ElMessage, ElMessageBox} from 'element-plus';
+import { useRoute, useRouter } from 'vue-router';
+import { ElMessage, ElMessageBox } from 'element-plus';
 import type { FormInstance, FormRules } from 'element-plus';
-import {deleteCourse, insertNewCourse, selectCourseByCno, updateCourseInfo} from "../api";
+import { insertNewCourse, selectCourseByCno, updateCourseInfo } from "../api";
+import { useTagsStore } from '../store/tags';
 
+// 初始化
+const tags = useTagsStore();
+const route = useRoute();
+const router = useRouter();
 
 const rules: FormRules = {
   cno: [{ required: true, message: '请输入内容', trigger: 'blur' }],
@@ -72,6 +78,7 @@ const rules: FormRules = {
   cclf: [{ required: true, message: '请输入内容', trigger: 'blur' }],
   credit: [{ required: true, message: '请输入内容', trigger: 'blur' }],
 };
+
 const formRef = ref<FormInstance>();
 const form = reactive({
   cno:'',
@@ -85,62 +92,71 @@ const form = reactive({
   exam:'',
   description:'',
   csche:'',
-  slimit:'',
-
+  slimit: 0, 
 });
+
 // 提交
 const onSubmit = (formEl: FormInstance | undefined) => {
-  // 表单校验
   if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
-      console.log(form);
       if(!form.exam_){
         form.exam = '考察'
       }else{
         form.exam = '考试'
       }
-      selectCourseByCno(form.cno).then(res=>{
-        //当前课程已经存在
-          if(res.data.data.length!=0){
+      
+      selectCourseByCno(form.cno).then(res => {
+          // 精确匹配：确保找到的课程号与输入的完全一致
+          const exactMatch = res.data.data && res.data.data.find((item: any) => item.cno === form.cno);
+
+          if(exactMatch){
             ElMessageBox.confirm('当前课号已经存在，是否修改数据？', '提示', {
               type: 'warning'
             })
-                .then(() => {
-                  updateCourseInfo(form).then(res=>{
-                    if (res.data.code == 200){
-                      ElMessage.success(res.data.message);
-                    }else{
-                      ElMessage.error(res.data.message);
-                    }
-                  })
-                })
-                .catch(() => {});
-          }else{
-            insertNewCourse(form).then(res=>{
+            .then(() => {
+              updateCourseInfo(form).then(res => {
+                if (res.data.code == 200){
+                  ElMessage.success(res.data.message);
+                  // 成功后关闭当前标签
+                  tags.closeCurrentTag({
+                    $route: route,
+                    $router: router
+                  });
+                }else{
+                  ElMessage.error(res.data.message);
+                }
+              })
+            })
+            .catch(() => {});
+          } else {
+            insertNewCourse(form).then(res => {
               if (res.data.code == 200){
                 ElMessage.success(res.data.message);
-              }else{
+                // 成功后关闭当前标签
+                tags.closeCurrentTag({
+                    $route: route,
+                    $router: router
+                });
+              } else {
                 ElMessage.error(res.data.message);
               }
             })
           }
       })
-
-
-
     } else {
       return false;
     }
   });
 };
+
 // 重置
 const onReset = (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   formEl.resetFields();
 };
-
 </script>
+
 <style scoped>
 .slider-demo-block {
   display: flex;

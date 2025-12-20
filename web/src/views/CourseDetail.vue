@@ -51,36 +51,41 @@
         <div class="submit-box">
            <span class="tips">温馨提示：评论提交后需通过管理员审核才会显示。</span>
            <el-button type="primary" size="large" @click="syncHTML">提交评价</el-button>
+           <el-button @click="goBack">返回列表</el-button>
         </div>
       </div>
     </div>
     
     <div v-else class="error-tip">
       <el-empty description="未找到课程信息，请返回列表重新选择"></el-empty>
-      <el-button type="primary" @click="$router.push('/table')">返回课程列表</el-button>
+      <el-button type="primary" @click="goBack">返回课程列表</el-button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import WangEditor from 'wangeditor';
-import { ref, reactive, onMounted, onBeforeUnmount } from 'vue';
-import { useRoute } from "vue-router";
+// 1. 引入 watch 和 nextTick
+import { ref, reactive, onMounted, onBeforeUnmount, watch, nextTick } from 'vue';
+import { useRoute, useRouter } from "vue-router";
 import { ElMessage, ElMessageBox } from 'element-plus';
 import request from '../utils/request';
 
 const route = useRoute();
+const router = useRouter();
+
 const loading = ref(true);
 const courseInfo = ref<any>(null);
 const comments = ref<any[]>([]);
 const editor = ref(null);
 let instance: any = null;
 
-// 从 URL 参数中获取 cno (例如 /CourseDetail?cno=U001)
-// 这种方式比传整个 JSON 对象稳定得多
 const currentCno = route.query.cno as string;
 
-// 初始化数据
+const goBack = () => {
+  router.push('/table');
+};
+
 const initData = async () => {
   if (!currentCno) {
     loading.value = false;
@@ -88,13 +93,12 @@ const initData = async () => {
   }
 
   try {
-    // 1. 获取课程详情 (调用已有的 search 接口)
     const resCourse = await request.get(`http://localhost:8088/course/search?cno=${currentCno}`);
     if (resCourse.data.code === 200 && resCourse.data.data.length > 0) {
+      // 数据赋值
       courseInfo.value = resCourse.data.data[0];
     }
 
-    // 2. 获取评论列表 (调用我们刚写的 visible 接口)
     const resComment = await request.get(`http://localhost:8088/comment/course/visible?cno=${currentCno}`);
     if (resComment.data.code === 200) {
       comments.value = resComment.data.data;
@@ -106,27 +110,40 @@ const initData = async () => {
   }
 };
 
-// 提交评论
+// 2. 核心修复：监听 courseInfo 的变化
+watch(courseInfo, (newVal) => {
+  if (newVal) {
+    // 只有当 courseInfo 有数据时，DOM 才会渲染，此时再初始化编辑器
+    nextTick(() => {
+      if (editor.value && !instance) {
+        instance = new WangEditor(editor.value);
+        instance.config.zIndex = 1;
+        instance.config.placeholder = '分享你的上课体验、考试难度或给分情况...';
+        instance.create();
+      }
+    });
+  }
+});
+
 const content = reactive({
   cno: currentCno,
   cid: 0,
   sno: localStorage.getItem('ms_username') || '匿名',
   time: '',
   detail: '',
-  isselect: 1, // 默认选过课
-  sscore: 5,   // 默认给5分（你可以后续加评分组件让用户选）
-  visible: 0,  // 默认不可见，需审核
+  isselect: 1,
+  sscore: 5,
+  visible: 0,
 });
 
 const syncHTML = () => {
-  if (!instance.txt.text()) {
+  if (!instance || !instance.txt.text()) {
     return ElMessage.warning("写点内容再提交吧~");
   }
 
   content.detail = instance.txt.html();
   content.time = new Date().toLocaleDateString();
 
-  // 获取当前评论数来生成 ID (简单逻辑)
   request.get(`http://localhost:8088/course/comment/num?cno=${currentCno}`).then(res => {
     content.cid = (res.data.data || 0) + 1;
     
@@ -146,12 +163,7 @@ const syncHTML = () => {
 
 onMounted(() => {
   initData();
-  
-  // 初始化编辑器
-  instance = new WangEditor(editor.value);
-  instance.config.zIndex = 1;
-  instance.config.placeholder = '分享你的上课体验、考试难度或给分情况...';
-  instance.create();
+  // 注意：删除了这里原来的初始化代码，改用上面的 watch 实现
 });
 
 onBeforeUnmount(() => {

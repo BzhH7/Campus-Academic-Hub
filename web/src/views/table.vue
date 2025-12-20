@@ -40,7 +40,6 @@
 			</div>
 		</div>
 
-		<!-- 编辑弹出框 -->
 		<el-dialog title="编辑" v-model="editVisible" width="30%">
 			<el-form label-width="70px">
 				<el-form-item label="用户名">
@@ -62,14 +61,14 @@
 
 <script setup lang="ts" name="basetable">
 import { ref, reactive } from 'vue';
+import { useRouter } from 'vue-router'; // 修改1: 引入 useRouter
 import { ElMessage, ElMessageBox } from 'element-plus';
-import { Delete, Edit, Search, Plus } from '@element-plus/icons-vue';
-import {fetchData, searchCourseRegional, selectCourseByCno} from '../api/index';
-import {getCourseNum} from "../api/index";
-import {fetchDataLimit} from "../api/index";
-import {deleteCourse,searchCourse} from "../api/index";
+import { Delete, Edit, Search } from '@element-plus/icons-vue';
+import { fetchData, searchCourseRegional, selectCourseByCno, getCourseNum, fetchDataLimit, deleteCourse, searchCourse } from '../api/index';
 import * as XLSX from "xlsx";
-import router from "../router";
+
+// 初始化路由
+const router = useRouter();
 
 interface TableItem {
 	cno: string;
@@ -99,6 +98,7 @@ const query = reactive({
 const tableData = ref<TableItem[]>([]);
 const tableDataForExport = ref<TableItem[]>([]);
 const pageTotal = ref(0);
+
 // 获取表格数据
 const getData = () => {
   getCourseNum().then(res=>{
@@ -117,7 +117,6 @@ const handleSearch = () => {
     ElMessage.success('未设置搜索条件');
     getData()
   }else{
-
     searchCourse(query.cname, query.tname, query.dname).then(res=>{
       ElMessage.success(res.data.message);
       pageTotal.value = res.data.data.length
@@ -126,34 +125,30 @@ const handleSearch = () => {
       tableData.value = res.data.data
     })
   }
-
-
 };
+
 // 分页导航
 const handlePageChange = (val: number) => {
 	query.pageIndex = val;
   searchCourseRegional(query.cname, query.tname, query.dname,(query.pageSize*(val-1)).toString(), (query.pageSize).toString()).then(res=>{
       console.log(res.data.data)
       tableData.value = res.data.data;
-
   })
 };
 
 // 删除操作
 const handleDelete = (index: number) => {
-	// 二次确认删除
 	ElMessageBox.confirm('确定要删除吗？', '提示', {
 		type: 'warning'
 	})
-		.then(() => {
+	.then(() => {
       deleteCourse((tableData.value[index].cno)).then(res=>{
         ElMessage.success(res.data);
         tableData.value.splice(index, 1);
         pageTotal.value = pageTotal.value-1
       })
-
-		})
-		.catch(() => {});
+	})
+	.catch(() => {});
 };
 
 // 表格编辑时弹窗和保存
@@ -162,31 +157,20 @@ let form = reactive({
 	name: '',
 	address: ''
 });
-let idx: number = -1;
-const handleEdit = (index: number, row: any) => {
-	idx = index;
-	form.name = row.name;
-	form.address = row.address;
-  selectCourseByCno(row.cno).then(res=>{
-    if(res.data.code==200){
-      ElMessage.success( "详情拉取成功")
-      let detail = JSON.stringify(res.data.data)
-      router.push('/CourseDetail?detail='+detail)
-    }else{
-      console.log(res.data.code)
-      ElMessage.error("详情拉取失败")
-    }
 
-  })
+// 修改2: 修复 handleEdit 跳转逻辑
+const handleEdit = (index: number, row: any) => {
+    router.push({
+        path: '/CourseDetail',
+        query: { cno: row.cno }
+    });
 };
-/*
+
 const saveEdit = () => {
 	editVisible.value = false;
-	ElMessage.success(`修改第 ${idx + 1} 行成功`);
-	tableData.value[idx].name = form.name;
-	tableData.value[idx].address = form.address;
+    // 这里原来被注释掉了，如果需要保存逻辑可以在这里写
 };
-*/
+
 const list = [['ID','课号', '课名', '授课教师', '校区', '考查形式', '课程类别', '开课部门']];
 const exportXlsx = () => {
   fetchData().then(res=>{
@@ -207,20 +191,16 @@ const exportXlsx = () => {
     XLSX.writeFile(new_workbook, `课程清单.xlsx`)
     ElMessage.success("数据导出成功");
   })
-
 };
-
 </script>
 
 <style scoped>
 .handle-box {
 	margin-bottom: 20px;
 }
-
 .handle-select {
 	width: 120px;
 }
-
 .handle-input {
 	width: 300px;
 }
@@ -232,6 +212,12 @@ const exportXlsx = () => {
 	color: #F56C6C;
 }
 .mr10 {
+	margin-right: 10px;
+}
+.mr11 {
+	margin-right: 10px;
+}
+.mr12 {
 	margin-right: 10px;
 }
 .table-td-thumb {
