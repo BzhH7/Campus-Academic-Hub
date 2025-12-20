@@ -35,8 +35,15 @@ public interface CommentMapper {
     @Select("SELECT * FROM comment_user limit #{start},#{offset}")
     List<CommentUser>selectAllUserRegional(@Param("start")int start, @Param("offset")int offset);
 
-    @Select("SELECT * FROM comment_manager limit #{start},#{offset}")
-    List<CommentManager>selectAllManagerRegional(@Param("start")int start, @Param("offset")int offset);
+    @Select("SELECT c.cno, co.cname, c.cid, c.time, c.detail, c.visible, c.isselect, c.sscore " +
+            "FROM comment c " +
+            "LEFT JOIN course co ON c.cno = co.cno " +
+            "ORDER BY c.time DESC " +  // 按时间倒序，新评论在前面
+            "LIMIT #{start}, #{offset}")
+    List<CommentManager> selectAllManagerRegional(@Param("start")int start, @Param("offset")int offset);
+
+    @Select("SELECT * FROM comment WHERE cno = #{cno} AND visible = 1 ORDER BY STR_TO_DATE(time, '%Y/%m/%d') DESC")
+    List<comment> selectVisibleCommentsByCno(@Param("cno") String cno);
 
     @Select("SELECT COUNT(*) FROM comment")
     int selectCommentNum();

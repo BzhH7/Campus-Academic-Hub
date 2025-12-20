@@ -2,6 +2,7 @@ package com.bzh.nwpusurvivalmanual.controller;
 
 import com.bzh.nwpusurvivalmanual.entity.CommentManager;
 import com.bzh.nwpusurvivalmanual.entity.CommentUser;
+import com.bzh.nwpusurvivalmanual.mapper.CommentMapper;
 import com.bzh.nwpusurvivalmanual.model.comment;
 import com.bzh.nwpusurvivalmanual.model.Course;
 import com.bzh.nwpusurvivalmanual.service.CommentService;
@@ -16,10 +17,22 @@ public class CommentController {
 
     private final CommentService commentService;
 
+    @Autowired
+    private CommentMapper commentMapper;
 
     @Autowired
     public CommentController(CommentService commentService){
         this.commentService = commentService;
+    }
+
+    @GetMapping("/comment/course/visible")
+    public Result getCourseComments(@RequestParam String cno) {
+        try {
+            List<comment> list = commentMapper.selectVisibleCommentsByCno(cno);
+            return Result.success(list);
+        } catch (Exception e) {
+            return Result.fail(null, 500, "获取评论失败");
+        }
     }
 
     @RequestMapping(value = "/comment/all", method = RequestMethod.GET)

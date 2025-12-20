@@ -20,3 +20,12 @@ CREATE TABLE `forum_post` (
   `title` VARCHAR(100), `content` TEXT, `author` VARCHAR(50),
   `tag` VARCHAR(20), `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP, `view_count` INT DEFAULT 0
 );
+
+CREATE TABLE `forum_reply` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `post_id` int NOT NULL COMMENT '关联的帖子ID',
+  `content` text NOT NULL COMMENT '回复内容',
+  `author` varchar(255) DEFAULT '匿名' COMMENT '回复人',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

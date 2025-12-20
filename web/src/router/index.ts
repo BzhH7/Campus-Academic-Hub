@@ -37,6 +37,12 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('../views/Forum.vue')
             },
             {
+                path: '/forum/:id',
+                name: 'PostDetail',
+                meta: { title: '帖子详情' },
+                component: () => import('../views/PostDetail.vue')
+            },
+            {
                 path: '/charts',
                 name: 'basecharts',
                 meta: {

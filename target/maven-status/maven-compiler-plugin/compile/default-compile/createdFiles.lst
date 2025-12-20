@@ -23,6 +23,7 @@ com\bzh\nwpusurvivalmanual\config\WebMvcConfig.class
 com\bzh\nwpusurvivalmanual\model\Department.class
 com\bzh\nwpusurvivalmanual\service\impl\CommentServiceImpl.class
 com\bzh\nwpusurvivalmanual\service\impl\ManagerServiceImpl.class
+com\bzh\nwpusurvivalmanual\entity\ForumReply.class
 com\bzh\nwpusurvivalmanual\controller\ForumController.class
 com\bzh\nwpusurvivalmanual\model\CourseRelation.class
 com\bzh\nwpusurvivalmanual\mapper\ForumMapper.class

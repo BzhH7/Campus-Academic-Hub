@@ -15,7 +15,13 @@
         <div v-loading="loading">
           <el-empty v-if="posts.length === 0" description="暂无帖子，快来抢沙发！"></el-empty>
           
-          <el-card v-for="post in posts" :key="post.id" class="post-card" shadow="hover">
+          <el-card 
+            v-for="post in posts" 
+            :key="post.id" 
+            class="post-card" 
+            shadow="hover" 
+            @click="$router.push(`/forum/${post.id}`)"
+          >
             <div class="post-header">
               <el-tag :type="getTagType(post.tag)" effect="light" round>{{ post.tag }}</el-tag>
               <h3 class="post-title">{{ post.title }}</h3>
@@ -24,12 +30,20 @@
             <div class="post-footer">
               <span class="author">
                 <el-avatar :size="20" style="vertical-align: middle; margin-right: 5px">
-                  {{ post.author.substring(0,1) }}
+                  {{ post.author ? post.author.substring(0,1) : '匿' }}
                 </el-avatar>
                 {{ post.author }}
               </span>
               <span class="time">{{ formatDate(post.create_time) }}</span>
               <span class="views">🔥 {{ post.view_count || 0 }} 浏览</span>
+              
+              <span 
+                v-if="username === post.author || username === 'admin'" 
+                class="delete-btn" 
+                @click.stop="handleDelete(post)"
+              >
+                <el-icon><Delete /></el-icon> 删除
+              </span>
             </div>
           </el-card>
         </div>
@@ -73,8 +87,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive } from 'vue';
-import { ElMessage } from 'element-plus';
-import request from '../utils/request'; // 假设你有这个工具类
+import { ElMessage, ElMessageBox } from 'element-plus';
+import request from '../utils/request';
+// 引入图标
+import { Edit, Delete } from '@element-plus/icons-vue';
 
 interface Post {
   id: number;
@@ -107,7 +123,7 @@ const fetchPosts = async () => {
       posts.value = res.data.data;
     }
   } catch (e) {
-    ElMessage.error("加载帖子失败，请检查后端！");
+    ElMessage.error("加载帖子失败");
   } finally {
     loading.value = false;
   }
@@ -121,10 +137,10 @@ const submitPost = async () => {
   }
   try {
     const res = await request.post('http://localhost:8088/forum/add', form);
-    if (res.data.code === 200 || res.data === "发布成功") { // 兼容不同的返回格式
+    if (res.data.code === 200 || res.data === "发布成功") {
       ElMessage.success("发布成功！");
       dialogVisible.value = false;
-      fetchPosts(); // 刷新列表
+      fetchPosts();
       form.title = '';
       form.content = '';
     } else {
@@ -135,19 +151,38 @@ const submitPost = async () => {
   }
 };
 
-// 工具：根据标签返回颜色
+// 【新增】删除帖子逻辑
+const handleDelete = (post: Post) => {
+  ElMessageBox.confirm(
+    '确定要删除这条帖子吗？相关的回复也会被一并删除。',
+    '警告',
+    {
+      confirmButtonText: '确定删除',
+      cancelButtonText: '取消',
+      type: 'warning',
+    }
+  ).then(async () => {
+    try {
+      const res = await request.post('http://localhost:8088/forum/delete', { id: post.id });
+      if (res.data.code === 200) {
+        ElMessage.success("删除成功");
+        fetchPosts(); // 刷新列表
+      } else {
+        ElMessage.error(res.data.msg || "删除失败");
+      }
+    } catch (e) {
+      ElMessage.error("删除请求出错");
+    }
+  }).catch(() => {});
+};
+
 const getTagType = (tag: string) => {
   const map: Record<string, string> = {
-    '闲聊': 'info',
-    '提问': 'warning',
-    '交易': 'success',
-    '置顶': 'danger',
-    '吐槽': 'danger'
+    '闲聊': 'info', '提问': 'warning', '交易': 'success', '吐槽': 'danger'
   };
   return map[tag] || '';
 };
 
-// 工具：简单格式化时间
 const formatDate = (timeStr: string) => {
   if (!timeStr) return '';
   return new Date(timeStr).toLocaleString();
@@ -159,66 +194,22 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.container {
-  padding: 20px;
-}
-.forum-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.05);
-}
+.container { padding: 20px; }
+.forum-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 12px 0 rgba(0,0,0,0.05); }
 .header-left h2 { margin: 0; color: #303133; }
 .subtitle { color: #909399; font-size: 14px; }
-
-.post-card {
-  margin-bottom: 15px;
-  transition: transform 0.2s;
-  cursor: pointer;
-}
-.post-card:hover {
-  transform: translateY(-2px);
-}
-.post-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-.post-title {
-  margin: 0 0 0 10px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #303133;
-}
-.post-content {
-  color: #606266;
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* 只显示两行 */
-  -webkit-box-orient: vertical;
-}
-.post-footer {
-  display: flex;
-  justify-content: space-between;
-  color: #909399;
-  font-size: 12px;
-}
-.sidebar-card {
-  position: sticky;
-  top: 20px;
-}
-.hot-topic {
-  padding: 10px 0;
-  color: #409EFF;
-  cursor: pointer;
-}
+.post-card { margin-bottom: 15px; transition: transform 0.2s; cursor: pointer; }
+.post-card:hover { transform: translateY(-2px); }
+.post-header { display: flex; align-items: center; margin-bottom: 10px; }
+.post-title { margin: 0 0 0 10px; font-size: 18px; font-weight: bold; color: #303133; }
+.post-content { color: #606266; font-size: 14px; line-height: 1.6; margin-bottom: 15px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.post-footer { display: flex; align-items: center; color: #909399; font-size: 12px; }
+.post-footer span { margin-right: 20px; display: flex; align-items: center; }
+.sidebar-card { position: sticky; top: 20px; }
+.hot-topic { padding: 10px 0; color: #409EFF; cursor: pointer; }
 .hot-topic:hover { text-decoration: underline; }
+
+/* 删除按钮样式 */
+.delete-btn { color: #F56C6C; cursor: pointer; transition: color 0.3s; margin-left: auto !important; margin-right: 0 !important; }
+.delete-btn:hover { color: #ff0000; font-weight: bold; }
 </style>
