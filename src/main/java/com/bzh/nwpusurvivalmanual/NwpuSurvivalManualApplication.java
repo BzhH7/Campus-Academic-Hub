@@ -1,4 +1,4 @@
-package com.yyh.nwpusurvivalmanual;
+package com.bzh.nwpusurvivalmanual;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

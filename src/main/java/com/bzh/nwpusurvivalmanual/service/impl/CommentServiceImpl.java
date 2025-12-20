@@ -1,11 +1,11 @@
-package com.yyh.nwpusurvivalmanual.service.impl;
+package com.bzh.nwpusurvivalmanual.service.impl;
 
-import com.yyh.nwpusurvivalmanual.entity.CommentManager;
-import com.yyh.nwpusurvivalmanual.entity.CommentUser;
-import com.yyh.nwpusurvivalmanual.mapper.CommentMapper;
-import com.yyh.nwpusurvivalmanual.service.CommentService;
+import com.bzh.nwpusurvivalmanual.entity.CommentManager;
+import com.bzh.nwpusurvivalmanual.entity.CommentUser;
+import com.bzh.nwpusurvivalmanual.mapper.CommentMapper;
+import com.bzh.nwpusurvivalmanual.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.yyh.nwpusurvivalmanual.model.comment;
+import com.bzh.nwpusurvivalmanual.model.comment;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

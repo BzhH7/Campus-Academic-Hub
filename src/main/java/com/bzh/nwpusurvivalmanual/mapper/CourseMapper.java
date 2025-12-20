@@ -1,7 +1,7 @@
-package com.yyh.nwpusurvivalmanual.mapper;
-import com.yyh.nwpusurvivalmanual.entity.CnameWithLabel;
-import com.yyh.nwpusurvivalmanual.model.Course;
-import com.yyh.nwpusurvivalmanual.model.CourseLables;
+package com.bzh.nwpusurvivalmanual.mapper;
+import com.bzh.nwpusurvivalmanual.entity.CnameWithLabel;
+import com.bzh.nwpusurvivalmanual.model.Course;
+import com.bzh.nwpusurvivalmanual.model.CourseLables;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.yyh.nwpusurvivalmanual.mapper;
+package com.bzh.nwpusurvivalmanual.mapper;
 
-import com.yyh.nwpusurvivalmanual.model.Manager;
+import com.bzh.nwpusurvivalmanual.model.Manager;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
 

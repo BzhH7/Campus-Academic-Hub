@@ -1,9 +1,9 @@
-package com.yyh.nwpusurvivalmanual.controller;
+package com.bzh.nwpusurvivalmanual.controller;
 
-import com.yyh.nwpusurvivalmanual.entity.CnameWithLabel;
-import com.yyh.nwpusurvivalmanual.model.Course;
-import com.yyh.nwpusurvivalmanual.service.CourseService;
-import com.yyh.nwpusurvivalmanual.utils.response.Result;
+import com.bzh.nwpusurvivalmanual.entity.CnameWithLabel;
+import com.bzh.nwpusurvivalmanual.model.Course;
+import com.bzh.nwpusurvivalmanual.service.CourseService;
+import com.bzh.nwpusurvivalmanual.utils.response.Result;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.jdbc.Null;

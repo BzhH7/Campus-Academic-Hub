@@ -1,0 +1,206 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentManager.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentManager.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\mapper\\CommentMapper.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\mapper\\CommentMapper.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\CommentService.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\CommentService.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\impl\\CommentServiceImpl.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\impl\\CommentServiceImpl.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentUser.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentUser.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\Course.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\Course.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CourseController.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CourseController.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CommentController.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CommentController.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\comment.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\comment.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CnameWithLabel.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CnameWithLabel.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CourseController.java",
+              "DocumentMoniker": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CourseController.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CourseController.java",
+              "ToolTip": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CourseController.java",
+              "RelativeToolTip": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CourseController.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVEhLrZVPaBNBFMbfzG6ahFRoWiVCI2wuQilC8RoQPIr2WMhR8NKDFw\u002BKeGisRgQVIZRCDooK3lrwpBcPuQgWiuCl0kAhi0aboJCg\u002BbPb3cn6dmaSLCRtkiU/eOy\u002Bl\u002BH75s3MTggM4czt6lIzEH7VUINLsjQqJViH\u002BIkG2vViSJkN/6irodMYgCbyl5HZJ\u002BxB9B60p25hoooaQphBobp15ffn/UMa26yjsGvgw0Qn9v15BkCpLAgcbIwxWK1uGt\u002BchVCDi/sycQ3OOTLhwur6d5n4ZK0nh\u002Bhi5m2csYUrZAZ4OkkoHElhE59Gz8BxnG6k02le0zSN5\u002BNAhTgGihNPB4lEAkqlEqRSKchms7I6PtyAdMSN3kHSdR1s24ZKpQK1Wk1Wx4eicKvbhaeDSUGhpRY6SzTMIJlMQrlcltloUHIUOOBLg\u002BLNf1FZFpvsbmo\u002Bn\u002BebXCwWIZfLQSaTkSMGE7FN\u002BSYgbPnSY2jTu8AU\u002BFOLQ2znjfzJH7E7Ne/HqFPHwg5w9k5zCmirt8l\u002BmbYNHp1OqGIECu4pon/Dfe35YRo1PCZ4pzUo78D90ELMksP8E\u002BHiXZNnlOx\u002BKKNBnV9wE8AVjrd/mqcs41rlycxLcReZygF/evBeFd4YxnJ4G97OXd39uqG9d3NhQJw\u002BA0LIwBjGzdmHMKNUbZkKAwdIn8Gk4FNyFlI3sP0XvDIAQwnguRZ/NiKCPGcRExbPv4P56J4cKSGwTdZgxX0VS8RYgT\u002BPwT1d4nR0woS54OHHyxef76C4jkO88Qna8AifHNHB4spZh5Ff7srz6jHITkoNNbyqfdngmzgM3gHZ2yqj9FN8PemYWEFmvVaJfWFUcQCA/yLkJvJFdKGBAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-20T08:46:46.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Course.java",
+              "DocumentMoniker": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\Course.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\Course.java",
+              "ToolTip": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\Course.java",
+              "RelativeToolTip": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\Course.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVEhLrZVPaBNBFMbfzG6ahFRoWiVCI2wuQilC8RoQPIr2WMhR8NKDFw\u002BKeGisRgQVIZRCDooK3lrwpBcPuQgWiuCl0kAhi0aboJCg\u002BbPb3cn6dmaSLCRtkiU/eOy\u002Bl\u002BH75s3MTggM4czt6lIzEH7VUINLsjQqJViH\u002BIkG2vViSJkN/6irodMYgCbyl5HZJ\u002BxB9B60p25hoooaQphBobp15ffn/UMa26yjsGvgw0Qn9v15BkCpLAgcbIwxWK1uGt\u002BchVCDi/sycQ3OOTLhwur6d5n4ZK0nh\u002Bhi5m2csYUrZAZ4OkkoHElhE59Gz8BxnG6k02le0zSN5\u002BNAhTgGihNPB4lEAkqlEqRSKchms7I6PtyAdMSN3kHSdR1s24ZKpQK1Wk1Wx4eicKvbhaeDSUGhpRY6SzTMIJlMQrlcltloUHIUOOBLg\u002BLNf1FZFpvsbmo\u002Bn\u002BebXCwWIZfLQSaTkSMGE7FN\u002BSYgbPnSY2jTu8AU\u002BFOLQ2znjfzJH7E7Ne/HqFPHwg5w9k5zCmirt8l\u002BmbYNHp1OqGIECu4pon/Dfe35YRo1PCZ4pzUo78D90ELMksP8E\u002BHiXZNnlOx\u002BKKNBnV9wE8AVjrd/mqcs41rlycxLcReZygF/evBeFd4YxnJ4G97OXd39uqG9d3NhQJw\u002BA0LIwBjGzdmHMKNUbZkKAwdIn8Gk4FNyFlI3sP0XvDIAQwnguRZ/NiKCPGcRExbPv4P56J4cKSGwTdZgxX0VS8RYgT\u002BPwT1d4nR0woS54OHHyxef76C4jkO88Qna8AifHNHB4spZh5Ff7srz6jHITkoNNbyqfdngmzgM3gHZ2yqj9FN8PemYWEFmvVaJfWFUcQCA/yLkJvJFdKGBAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-20T08:46:46.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CommentUser.java",
+              "DocumentMoniker": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentUser.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentUser.java",
+              "ToolTip": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentUser.java",
+              "RelativeToolTip": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentUser.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVEhLrZVPaBNBFMbfzG6ahFRoWiVCI2wuQilC8RoQPIr2WMhR8NKDFw\u002BKeGisRgQVIZRCDooK3lrwpBcPuQgWiuCl0kAhi0aboJCg\u002BbPb3cn6dmaSLCRtkiU/eOy\u002Bl\u002BH75s3MTggM4czt6lIzEH7VUINLsjQqJViH\u002BIkG2vViSJkN/6irodMYgCbyl5HZJ\u002BxB9B60p25hoooaQphBobp15ffn/UMa26yjsGvgw0Qn9v15BkCpLAgcbIwxWK1uGt\u002BchVCDi/sycQ3OOTLhwur6d5n4ZK0nh\u002Bhi5m2csYUrZAZ4OkkoHElhE59Gz8BxnG6k02le0zSN5\u002BNAhTgGihNPB4lEAkqlEqRSKchms7I6PtyAdMSN3kHSdR1s24ZKpQK1Wk1Wx4eicKvbhaeDSUGhpRY6SzTMIJlMQrlcltloUHIUOOBLg\u002BLNf1FZFpvsbmo\u002Bn\u002BebXCwWIZfLQSaTkSMGE7FN\u002BSYgbPnSY2jTu8AU\u002BFOLQ2znjfzJH7E7Ne/HqFPHwg5w9k5zCmirt8l\u002BmbYNHp1OqGIECu4pon/Dfe35YRo1PCZ4pzUo78D90ELMksP8E\u002BHiXZNnlOx\u002BKKNBnV9wE8AVjrd/mqcs41rlycxLcReZygF/evBeFd4YxnJ4G97OXd39uqG9d3NhQJw\u002BA0LIwBjGzdmHMKNUbZkKAwdIn8Gk4FNyFlI3sP0XvDIAQwnguRZ/NiKCPGcRExbPv4P56J4cKSGwTdZgxX0VS8RYgT\u002BPwT1d4nR0woS54OHHyxef76C4jkO88Qna8AifHNHB4spZh5Ff7srz6jHITkoNNbyqfdngmzgM3gHZ2yqj9FN8PemYWEFmvVaJfWFUcQCA/yLkJvJFdKGBAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-20T08:46:45.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CommentServiceImpl.java",
+              "DocumentMoniker": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\impl\\CommentServiceImpl.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\impl\\CommentServiceImpl.java",
+              "ToolTip": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\impl\\CommentServiceImpl.java",
+              "RelativeToolTip": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\impl\\CommentServiceImpl.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAOAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVEhLrZVPaBNBFMbfzG6ahFRoWiVCI2wuQilC8RoQPIr2WMhR8NKDFw\u002BKeGisRgQVIZRCDooK3lrwpBcPuQgWiuCl0kAhi0aboJCg\u002BbPb3cn6dmaSLCRtkiU/eOy\u002Bl\u002BH75s3MTggM4czt6lIzEH7VUINLsjQqJViH\u002BIkG2vViSJkN/6irodMYgCbyl5HZJ\u002BxB9B60p25hoooaQphBobp15ffn/UMa26yjsGvgw0Qn9v15BkCpLAgcbIwxWK1uGt\u002BchVCDi/sycQ3OOTLhwur6d5n4ZK0nh\u002Bhi5m2csYUrZAZ4OkkoHElhE59Gz8BxnG6k02le0zSN5\u002BNAhTgGihNPB4lEAkqlEqRSKchms7I6PtyAdMSN3kHSdR1s24ZKpQK1Wk1Wx4eicKvbhaeDSUGhpRY6SzTMIJlMQrlcltloUHIUOOBLg\u002BLNf1FZFpvsbmo\u002Bn\u002BebXCwWIZfLQSaTkSMGE7FN\u002BSYgbPnSY2jTu8AU\u002BFOLQ2znjfzJH7E7Ne/HqFPHwg5w9k5zCmirt8l\u002BmbYNHp1OqGIECu4pon/Dfe35YRo1PCZ4pzUo78D90ELMksP8E\u002BHiXZNnlOx\u002BKKNBnV9wE8AVjrd/mqcs41rlycxLcReZygF/evBeFd4YxnJ4G97OXd39uqG9d3NhQJw\u002BA0LIwBjGzdmHMKNUbZkKAwdIn8Gk4FNyFlI3sP0XvDIAQwnguRZ/NiKCPGcRExbPv4P56J4cKSGwTdZgxX0VS8RYgT\u002BPwT1d4nR0woS54OHHyxef76C4jkO88Qna8AifHNHB4spZh5Ff7srz6jHITkoNNbyqfdngmzgM3gHZ2yqj9FN8PemYWEFmvVaJfWFUcQCA/yLkJvJFdKGBAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-20T08:46:44.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CommentService.java",
+              "DocumentMoniker": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\CommentService.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\CommentService.java",
+              "ToolTip": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\CommentService.java",
+              "RelativeToolTip": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\service\\CommentService.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVEhLrZVPaBNBFMbfzG6ahFRoWiVCI2wuQilC8RoQPIr2WMhR8NKDFw\u002BKeGisRgQVIZRCDooK3lrwpBcPuQgWiuCl0kAhi0aboJCg\u002BbPb3cn6dmaSLCRtkiU/eOy\u002Bl\u002BH75s3MTggM4czt6lIzEH7VUINLsjQqJViH\u002BIkG2vViSJkN/6irodMYgCbyl5HZJ\u002BxB9B60p25hoooaQphBobp15ffn/UMa26yjsGvgw0Qn9v15BkCpLAgcbIwxWK1uGt\u002BchVCDi/sycQ3OOTLhwur6d5n4ZK0nh\u002Bhi5m2csYUrZAZ4OkkoHElhE59Gz8BxnG6k02le0zSN5\u002BNAhTgGihNPB4lEAkqlEqRSKchms7I6PtyAdMSN3kHSdR1s24ZKpQK1Wk1Wx4eicKvbhaeDSUGhpRY6SzTMIJlMQrlcltloUHIUOOBLg\u002BLNf1FZFpvsbmo\u002Bn\u002BebXCwWIZfLQSaTkSMGE7FN\u002BSYgbPnSY2jTu8AU\u002BFOLQ2znjfzJH7E7Ne/HqFPHwg5w9k5zCmirt8l\u002BmbYNHp1OqGIECu4pon/Dfe35YRo1PCZ4pzUo78D90ELMksP8E\u002BHiXZNnlOx\u002BKKNBnV9wE8AVjrd/mqcs41rlycxLcReZygF/evBeFd4YxnJ4G97OXd39uqG9d3NhQJw\u002BA0LIwBjGzdmHMKNUbZkKAwdIn8Gk4FNyFlI3sP0XvDIAQwnguRZ/NiKCPGcRExbPv4P56J4cKSGwTdZgxX0VS8RYgT\u002BPwT1d4nR0woS54OHHyxef76C4jkO88Qna8AifHNHB4spZh5Ff7srz6jHITkoNNbyqfdngmzgM3gHZ2yqj9FN8PemYWEFmvVaJfWFUcQCA/yLkJvJFdKGBAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-20T08:46:42.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CommentMapper.java",
+              "DocumentMoniker": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\mapper\\CommentMapper.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\mapper\\CommentMapper.java",
+              "ToolTip": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\mapper\\CommentMapper.java",
+              "RelativeToolTip": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\mapper\\CommentMapper.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVEhLrZVPaBNBFMbfzG6ahFRoWiVCI2wuQilC8RoQPIr2WMhR8NKDFw\u002BKeGisRgQVIZRCDooK3lrwpBcPuQgWiuCl0kAhi0aboJCg\u002BbPb3cn6dmaSLCRtkiU/eOy\u002Bl\u002BH75s3MTggM4czt6lIzEH7VUINLsjQqJViH\u002BIkG2vViSJkN/6irodMYgCbyl5HZJ\u002BxB9B60p25hoooaQphBobp15ffn/UMa26yjsGvgw0Qn9v15BkCpLAgcbIwxWK1uGt\u002BchVCDi/sycQ3OOTLhwur6d5n4ZK0nh\u002Bhi5m2csYUrZAZ4OkkoHElhE59Gz8BxnG6k02le0zSN5\u002BNAhTgGihNPB4lEAkqlEqRSKchms7I6PtyAdMSN3kHSdR1s24ZKpQK1Wk1Wx4eicKvbhaeDSUGhpRY6SzTMIJlMQrlcltloUHIUOOBLg\u002BLNf1FZFpvsbmo\u002Bn\u002BebXCwWIZfLQSaTkSMGE7FN\u002BSYgbPnSY2jTu8AU\u002BFOLQ2znjfzJH7E7Ne/HqFPHwg5w9k5zCmirt8l\u002BmbYNHp1OqGIECu4pon/Dfe35YRo1PCZ4pzUo78D90ELMksP8E\u002BHiXZNnlOx\u002BKKNBnV9wE8AVjrd/mqcs41rlycxLcReZygF/evBeFd4YxnJ4G97OXd39uqG9d3NhQJw\u002BA0LIwBjGzdmHMKNUbZkKAwdIn8Gk4FNyFlI3sP0XvDIAQwnguRZ/NiKCPGcRExbPv4P56J4cKSGwTdZgxX0VS8RYgT\u002BPwT1d4nR0woS54OHHyxef76C4jkO88Qna8AifHNHB4spZh5Ff7srz6jHITkoNNbyqfdngmzgM3gHZ2yqj9FN8PemYWEFmvVaJfWFUcQCA/yLkJvJFdKGBAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-20T08:46:41.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CommentManager.java",
+              "DocumentMoniker": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentManager.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentManager.java",
+              "ToolTip": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentManager.java",
+              "RelativeToolTip": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CommentManager.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVEhLrZVPaBNBFMbfzG6ahFRoWiVCI2wuQilC8RoQPIr2WMhR8NKDFw\u002BKeGisRgQVIZRCDooK3lrwpBcPuQgWiuCl0kAhi0aboJCg\u002BbPb3cn6dmaSLCRtkiU/eOy\u002Bl\u002BH75s3MTggM4czt6lIzEH7VUINLsjQqJViH\u002BIkG2vViSJkN/6irodMYgCbyl5HZJ\u002BxB9B60p25hoooaQphBobp15ffn/UMa26yjsGvgw0Qn9v15BkCpLAgcbIwxWK1uGt\u002BchVCDi/sycQ3OOTLhwur6d5n4ZK0nh\u002Bhi5m2csYUrZAZ4OkkoHElhE59Gz8BxnG6k02le0zSN5\u002BNAhTgGihNPB4lEAkqlEqRSKchms7I6PtyAdMSN3kHSdR1s24ZKpQK1Wk1Wx4eicKvbhaeDSUGhpRY6SzTMIJlMQrlcltloUHIUOOBLg\u002BLNf1FZFpvsbmo\u002Bn\u002BebXCwWIZfLQSaTkSMGE7FN\u002BSYgbPnSY2jTu8AU\u002BFOLQ2znjfzJH7E7Ne/HqFPHwg5w9k5zCmirt8l\u002BmbYNHp1OqGIECu4pon/Dfe35YRo1PCZ4pzUo78D90ELMksP8E\u002BHiXZNnlOx\u002BKKNBnV9wE8AVjrd/mqcs41rlycxLcReZygF/evBeFd4YxnJ4G97OXd39uqG9d3NhQJw\u002BA0LIwBjGzdmHMKNUbZkKAwdIn8Gk4FNyFlI3sP0XvDIAQwnguRZ/NiKCPGcRExbPv4P56J4cKSGwTdZgxX0VS8RYgT\u002BPwT1d4nR0woS54OHHyxef76C4jkO88Qna8AifHNHB4spZh5Ff7srz6jHITkoNNbyqfdngmzgM3gHZ2yqj9FN8PemYWEFmvVaJfWFUcQCA/yLkJvJFdKGBAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-20T08:46:41.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CommentController.java",
+              "DocumentMoniker": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CommentController.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CommentController.java",
+              "ToolTip": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CommentController.java",
+              "RelativeToolTip": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\controller\\CommentController.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAOAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVEhLrZVPaBNBFMbfzG6ahFRoWiVCI2wuQilC8RoQPIr2WMhR8NKDFw\u002BKeGisRgQVIZRCDooK3lrwpBcPuQgWiuCl0kAhi0aboJCg\u002BbPb3cn6dmaSLCRtkiU/eOy\u002Bl\u002BH75s3MTggM4czt6lIzEH7VUINLsjQqJViH\u002BIkG2vViSJkN/6irodMYgCbyl5HZJ\u002BxB9B60p25hoooaQphBobp15ffn/UMa26yjsGvgw0Qn9v15BkCpLAgcbIwxWK1uGt\u002BchVCDi/sycQ3OOTLhwur6d5n4ZK0nh\u002Bhi5m2csYUrZAZ4OkkoHElhE59Gz8BxnG6k02le0zSN5\u002BNAhTgGihNPB4lEAkqlEqRSKchms7I6PtyAdMSN3kHSdR1s24ZKpQK1Wk1Wx4eicKvbhaeDSUGhpRY6SzTMIJlMQrlcltloUHIUOOBLg\u002BLNf1FZFpvsbmo\u002Bn\u002BebXCwWIZfLQSaTkSMGE7FN\u002BSYgbPnSY2jTu8AU\u002BFOLQ2znjfzJH7E7Ne/HqFPHwg5w9k5zCmirt8l\u002BmbYNHp1OqGIECu4pon/Dfe35YRo1PCZ4pzUo78D90ELMksP8E\u002BHiXZNnlOx\u002BKKNBnV9wE8AVjrd/mqcs41rlycxLcReZygF/evBeFd4YxnJ4G97OXd39uqG9d3NhQJw\u002BA0LIwBjGzdmHMKNUbZkKAwdIn8Gk4FNyFlI3sP0XvDIAQwnguRZ/NiKCPGcRExbPv4P56J4cKSGwTdZgxX0VS8RYgT\u002BPwT1d4nR0woS54OHHyxef76C4jkO88Qna8AifHNHB4spZh5Ff7srz6jHITkoNNbyqfdngmzgM3gHZ2yqj9FN8PemYWEFmvVaJfWFUcQCA/yLkJvJFdKGBAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-20T08:46:38.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "comment.java",
+              "DocumentMoniker": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\comment.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\comment.java",
+              "ToolTip": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\comment.java",
+              "RelativeToolTip": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\model\\comment.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVEhLrZVPaBNBFMbfzG6ahFRoWiVCI2wuQilC8RoQPIr2WMhR8NKDFw\u002BKeGisRgQVIZRCDooK3lrwpBcPuQgWiuCl0kAhi0aboJCg\u002BbPb3cn6dmaSLCRtkiU/eOy\u002Bl\u002BH75s3MTggM4czt6lIzEH7VUINLsjQqJViH\u002BIkG2vViSJkN/6irodMYgCbyl5HZJ\u002BxB9B60p25hoooaQphBobp15ffn/UMa26yjsGvgw0Qn9v15BkCpLAgcbIwxWK1uGt\u002BchVCDi/sycQ3OOTLhwur6d5n4ZK0nh\u002Bhi5m2csYUrZAZ4OkkoHElhE59Gz8BxnG6k02le0zSN5\u002BNAhTgGihNPB4lEAkqlEqRSKchms7I6PtyAdMSN3kHSdR1s24ZKpQK1Wk1Wx4eicKvbhaeDSUGhpRY6SzTMIJlMQrlcltloUHIUOOBLg\u002BLNf1FZFpvsbmo\u002Bn\u002BebXCwWIZfLQSaTkSMGE7FN\u002BSYgbPnSY2jTu8AU\u002BFOLQ2znjfzJH7E7Ne/HqFPHwg5w9k5zCmirt8l\u002BmbYNHp1OqGIECu4pon/Dfe35YRo1PCZ4pzUo78D90ELMksP8E\u002BHiXZNnlOx\u002BKKNBnV9wE8AVjrd/mqcs41rlycxLcReZygF/evBeFd4YxnJ4G97OXd39uqG9d3NhQJw\u002BA0LIwBjGzdmHMKNUbZkKAwdIn8Gk4FNyFlI3sP0XvDIAQwnguRZ/NiKCPGcRExbPv4P56J4cKSGwTdZgxX0VS8RYgT\u002BPwT1d4nR0woS54OHHyxef76C4jkO88Qna8AifHNHB4spZh5Ff7srz6jHITkoNNbyqfdngmzgM3gHZ2yqj9FN8PemYWEFmvVaJfWFUcQCA/yLkJvJFdKGBAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-20T08:46:37.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CnameWithLabel.java",
+              "DocumentMoniker": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CnameWithLabel.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CnameWithLabel.java",
+              "ToolTip": "C:\\Users\\24843\\Desktop\\Campus-Academic-Hub\\src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CnameWithLabel.java",
+              "RelativeToolTip": "src\\main\\java\\com\\bzh\\nwpusurvivalmanual\\entity\\CnameWithLabel.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVEhLrZVPaBNBFMbfzG6ahFRoWiVCI2wuQilC8RoQPIr2WMhR8NKDFw\u002BKeGisRgQVIZRCDooK3lrwpBcPuQgWiuCl0kAhi0aboJCg\u002BbPb3cn6dmaSLCRtkiU/eOy\u002Bl\u002BH75s3MTggM4czt6lIzEH7VUINLsjQqJViH\u002BIkG2vViSJkN/6irodMYgCbyl5HZJ\u002BxB9B60p25hoooaQphBobp15ffn/UMa26yjsGvgw0Qn9v15BkCpLAgcbIwxWK1uGt\u002BchVCDi/sycQ3OOTLhwur6d5n4ZK0nh\u002Bhi5m2csYUrZAZ4OkkoHElhE59Gz8BxnG6k02le0zSN5\u002BNAhTgGihNPB4lEAkqlEqRSKchms7I6PtyAdMSN3kHSdR1s24ZKpQK1Wk1Wx4eicKvbhaeDSUGhpRY6SzTMIJlMQrlcltloUHIUOOBLg\u002BLNf1FZFpvsbmo\u002Bn\u002BebXCwWIZfLQSaTkSMGE7FN\u002BSYgbPnSY2jTu8AU\u002BFOLQ2znjfzJH7E7Ne/HqFPHwg5w9k5zCmirt8l\u002BmbYNHp1OqGIECu4pon/Dfe35YRo1PCZ4pzUo78D90ELMksP8E\u002BHiXZNnlOx\u002BKKNBnV9wE8AVjrd/mqcs41rlycxLcReZygF/evBeFd4YxnJ4G97OXd39uqG9d3NhQJw\u002BA0LIwBjGzdmHMKNUbZkKAwdIn8Gk4FNyFlI3sP0XvDIAQwnguRZ/NiKCPGcRExbPv4P56J4cKSGwTdZgxX0VS8RYgT\u002BPwT1d4nR0woS54OHHyxef76C4jkO88Qna8AifHNHB4spZh5Ff7srz6jHITkoNNbyqfdngmzgM3gHZ2yqj9FN8PemYWEFmvVaJfWFUcQCA/yLkJvJFdKGBAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-20T08:46:29.49Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

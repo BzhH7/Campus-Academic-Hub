@@ -31,6 +31,12 @@ const routes: RouteRecordRaw[] = [
                 component: () => import(/* webpackChunkName: "table" */ '../views/table.vue'),
             },
             {
+                path: '/forum',
+                name: 'forum',
+                meta: { title: '校园论坛' },
+                component: () => import('../views/Forum.vue')
+            },
+            {
                 path: '/charts',
                 name: 'basecharts',
                 meta: {

@@ -1,8 +1,8 @@
-package com.yyh.nwpusurvivalmanual.controller;
-import com.yyh.nwpusurvivalmanual.utils.response.Result;
+package com.bzh.nwpusurvivalmanual.controller;
+import com.bzh.nwpusurvivalmanual.utils.response.Result;
 
-import com.yyh.nwpusurvivalmanual.model.Manager;
-import com.yyh.nwpusurvivalmanual.service.ManagerService;
+import com.bzh.nwpusurvivalmanual.model.Manager;
+import com.bzh.nwpusurvivalmanual.service.ManagerService;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

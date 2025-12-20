@@ -1,4 +1,4 @@
-package com.yyh.nwpusurvivalmanual.entity;
+package com.bzh.nwpusurvivalmanual.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

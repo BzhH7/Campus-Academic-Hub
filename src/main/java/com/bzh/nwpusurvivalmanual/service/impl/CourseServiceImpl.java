@@ -1,10 +1,10 @@
-package com.yyh.nwpusurvivalmanual.service.impl;
+package com.bzh.nwpusurvivalmanual.service.impl;
 
 
-import com.yyh.nwpusurvivalmanual.entity.CnameWithLabel;
-import com.yyh.nwpusurvivalmanual.mapper.CourseMapper;
-import com.yyh.nwpusurvivalmanual.model.Course;
-import com.yyh.nwpusurvivalmanual.service.CourseService;
+import com.bzh.nwpusurvivalmanual.entity.CnameWithLabel;
+import com.bzh.nwpusurvivalmanual.mapper.CourseMapper;
+import com.bzh.nwpusurvivalmanual.model.Course;
+import com.bzh.nwpusurvivalmanual.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

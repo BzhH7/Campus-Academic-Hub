@@ -1,8 +1,8 @@
-package com.yyh.nwpusurvivalmanual.service.impl;
+package com.bzh.nwpusurvivalmanual.service.impl;
 
-import com.yyh.nwpusurvivalmanual.mapper.ManagerMapper;
-import com.yyh.nwpusurvivalmanual.model.Manager;
-import com.yyh.nwpusurvivalmanual.service.ManagerService;
+import com.bzh.nwpusurvivalmanual.mapper.ManagerMapper;
+import com.bzh.nwpusurvivalmanual.model.Manager;
+import com.bzh.nwpusurvivalmanual.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

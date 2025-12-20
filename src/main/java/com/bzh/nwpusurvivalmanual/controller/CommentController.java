@@ -1,11 +1,11 @@
-package com.yyh.nwpusurvivalmanual.controller;
+package com.bzh.nwpusurvivalmanual.controller;
 
-import com.yyh.nwpusurvivalmanual.entity.CommentManager;
-import com.yyh.nwpusurvivalmanual.entity.CommentUser;
-import com.yyh.nwpusurvivalmanual.model.comment;
-import com.yyh.nwpusurvivalmanual.model.Course;
-import com.yyh.nwpusurvivalmanual.service.CommentService;
-import com.yyh.nwpusurvivalmanual.utils.response.Result;
+import com.bzh.nwpusurvivalmanual.entity.CommentManager;
+import com.bzh.nwpusurvivalmanual.entity.CommentUser;
+import com.bzh.nwpusurvivalmanual.model.comment;
+import com.bzh.nwpusurvivalmanual.model.Course;
+import com.bzh.nwpusurvivalmanual.service.CommentService;
+import com.bzh.nwpusurvivalmanual.utils.response.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

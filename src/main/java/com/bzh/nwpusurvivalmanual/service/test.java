@@ -1,4 +1,4 @@
-package com.yyh.nwpusurvivalmanual.service;
+package com.bzh.nwpusurvivalmanual.service;
 
 public class test {
 }

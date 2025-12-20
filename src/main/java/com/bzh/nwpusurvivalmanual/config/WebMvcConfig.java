@@ -1,4 +1,4 @@
-package com.yyh.nwpusurvivalmanual.config;
+package com.bzh.nwpusurvivalmanual.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

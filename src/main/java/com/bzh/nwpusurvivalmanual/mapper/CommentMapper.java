@@ -1,9 +1,9 @@
-package com.yyh.nwpusurvivalmanual.mapper;
+package com.bzh.nwpusurvivalmanual.mapper;
 
-import com.yyh.nwpusurvivalmanual.entity.CommentManager;
-import com.yyh.nwpusurvivalmanual.entity.CommentUser;
-import com.yyh.nwpusurvivalmanual.model.Course;
-import com.yyh.nwpusurvivalmanual.model.comment;
+import com.bzh.nwpusurvivalmanual.entity.CommentManager;
+import com.bzh.nwpusurvivalmanual.entity.CommentUser;
+import com.bzh.nwpusurvivalmanual.model.Course;
+import com.bzh.nwpusurvivalmanual.model.comment;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.yyh.nwpusurvivalmanual.model;
+package com.bzh.nwpusurvivalmanual.model;
 
 public class User {
     private String sno;

@@ -1,8 +1,8 @@
-package com.yyh.nwpusurvivalmanual.service;
+package com.bzh.nwpusurvivalmanual.service;
 
-import com.yyh.nwpusurvivalmanual.entity.CommentManager;
-import com.yyh.nwpusurvivalmanual.entity.CommentUser;
-import com.yyh.nwpusurvivalmanual.model.comment;
+import com.bzh.nwpusurvivalmanual.entity.CommentManager;
+import com.bzh.nwpusurvivalmanual.entity.CommentUser;
+import com.bzh.nwpusurvivalmanual.model.comment;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

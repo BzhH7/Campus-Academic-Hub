@@ -1,4 +1,4 @@
-package com.yyh.nwpusurvivalmanual.utils.response;
+package com.bzh.nwpusurvivalmanual.utils.response;
 
 import lombok.Data;
 

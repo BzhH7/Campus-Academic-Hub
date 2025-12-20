@@ -1,4 +1,4 @@
-package com.yyh.nwpusurvivalmanual.entity;
+package com.bzh.nwpusurvivalmanual.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ public class CommentManager {
     private String time;
 
     private String detail;
-
+	
     private int isselect;
 
     private float sscore;

@@ -1,8 +1,8 @@
-package com.yyh.nwpusurvivalmanual.service;
+package com.bzh.nwpusurvivalmanual.service;
 
-import com.yyh.nwpusurvivalmanual.entity.CnameWithLabel;
-import com.yyh.nwpusurvivalmanual.model.Course;
-import com.yyh.nwpusurvivalmanual.model.Manager;
+import com.bzh.nwpusurvivalmanual.entity.CnameWithLabel;
+import com.bzh.nwpusurvivalmanual.model.Course;
+import com.bzh.nwpusurvivalmanual.model.Manager;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

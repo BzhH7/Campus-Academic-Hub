@@ -63,6 +63,12 @@ const items = [
         permiss: '1',
     },
     {
+        icon: 'ChatDotRound', // 使用一个气泡图标
+        index: '/forum',
+        title: '校园论坛',
+        permiss: '1',
+    },
+    {
         icon: 'Calendar',
         index: '1',
         title: '课程相关',

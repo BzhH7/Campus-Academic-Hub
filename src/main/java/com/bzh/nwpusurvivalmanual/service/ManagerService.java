@@ -1,6 +1,6 @@
-package com.yyh.nwpusurvivalmanual.service;
+package com.bzh.nwpusurvivalmanual.service;
 
-import com.yyh.nwpusurvivalmanual.model.Manager;
+import com.bzh.nwpusurvivalmanual.model.Manager;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
