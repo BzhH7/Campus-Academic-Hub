@@ -66,7 +66,7 @@ const handleCommand = (command: string) => {
 	width: 100%;
 	height: 70px;
 	font-size: 22px;
-	background-color: #4a5744;
+	background-color: #242f42;
 	color: #fff;
 	display: flex;
 	justify-content: space-between; /* 将子元素分散对齐，确保.header .logo 在中央，.header-right 在右侧 */

@@ -4,9 +4,9 @@
             class="sidebar-el-menu"
             :default-active="onRoutes"
             :collapse="sidebar.collapse"
-            background-color="#4a5744"
-            text-color="#fff"
-            active-text-color="#fff"
+            background-color="#324157"
+            text-color="#bfcbd9"
+            active-text-color="#20a0ff"
             unique-opened
             router
         >
@@ -55,15 +55,16 @@ import { computed } from 'vue';
 import { useSidebarStore } from '../store/sidebar';
 import { useRoute } from 'vue-router';
 
+// 优化了菜单标题
 const items = [
     {
         icon: 'Odometer',
         index: '/dashboard',
-        title: '课程关系图',
+        title: '系统首页', // 从 "课程关系图" 改为 "系统首页"
         permiss: '1',
     },
     {
-        icon: 'ChatDotRound', // 使用一个气泡图标
+        icon: 'ChatDotRound',
         index: '/forum',
         title: '校园论坛',
         permiss: '1',
@@ -71,17 +72,17 @@ const items = [
     {
         icon: 'Calendar',
         index: '1',
-        title: '课程相关',
+        title: '课程教务', // 稍微改得更正式一点
         permiss: '2',
         subs: [
             {
                 index: '/table',
-                title: '课程列表',
+                title: '查课选课',
                 permiss: '2',
             },
             {
                 index: '/newCourse',
-                title: '添加新课程',
+                title: '录入新课',
                 permiss: '2',
             },
         ],
@@ -89,7 +90,7 @@ const items = [
     {
         icon: 'Edit',
         index: '3',
-        title: '管理员',
+        title: '系统管理',
         permiss: '4',
         subs: [
             {

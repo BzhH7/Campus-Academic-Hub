@@ -1,62 +1,107 @@
-# Campus-Course-Insight (基于Web的课程评价与教务辅助系统)
+# Campus-Academic-Hub
 
-> 一个专注于解决高校选课信息不对称、提升教务数据透明度的分布式课程管理系统。
+![License](https://img.shields.io/badge/license-MIT-blue.svg) ![SpringBoot](https://img.shields.io/badge/SpringBoot-2.7-green.svg) ![Vue](https://img.shields.io/badge/Vue.js-3.0-42b883.svg) ![MySQL](https://img.shields.io/badge/MySQL-8.0-orange.svg)
 
-## 📖 项目背景
-本项目旨在构建一个集课程查询、多维评价、信息共享于一体的教务辅助平台。针对现有教务系统仅提供基础元数据而缺乏评价指标的痛点，本系统引入了用户交互层，利用关系型数据库设计，实现了课程数据的结构化存储与高效检索。
+> 一个集课程评价、知识图谱可视化、校园学术论坛于一体的现代化教务辅助系统。
+> 旨在打破选课信息差，构建透明、活跃的校园学术社区。
 
-核心目标是利用数据库技术优化课程信息的筛选效率，为学生提供基于数据支撑的选课决策依据。
+## ✨ 核心特性
 
-## 🛠 技术栈
-* **后端框架**: Spring Boot (遵循 RESTful API 设计规范)
-* **持久层**: MyBatis / MySQL 8.0
-* **构建工具**: Maven
-* **数据模型**: 采用 E-R 模型设计，包含实体(Entity)与业务模型(Model)的分层映射
+* **🎓 课程洞察系统**：基于多维标签（如“人工智能”、“Web开发”）的课程检索与评价。
+* **🕸️ 知识图谱可视化**：自动分析课程间的先修/后继关系，生成交互式动态图谱（支持自动发现新标签）。
+* **💬 校园论坛 (Forum)**：卡片式布局的轻量级社区，支持发帖、分类讨论（交易/求助/闲聊）。
+* **🛡️ 评论审核流**：引入管理员审核机制，确保社区言论合规。
 
-## 🚀 快速部署与运行
+## 🛠️ 技术架构
 
-### 1. 数据库配置
-请在 `src/main/resources/application.properties` 中配置本地数据库环境。
-**注意：出于安全考虑，请务必修改默认的数据库账号密码。**
+| 模块       | 技术选型                  | 说明                                         |
+| :--------- | :------------------------ | :------------------------------------------- |
+| **前端**   | Vue 3 + Vite + TypeScript | 采用 Composition API，Element Plus UI 组件库 |
+| **后端**   | Spring Boot 2.7           | 遵循 RESTful 规范，MyBatis Plus 持久层框架   |
+| **数据库** | MySQL 8.0                 | 关系型数据存储，支持高并发查询               |
+| **可视化** | ECharts 5.0               | 渲染高性能的力导向图（Force Graph）          |
 
-```properties
-server.port=8088
+## 🚀 从零开始启动指南
 
-# 数据库驱动配置
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-# 请根据本地时区和编码调整 URL
-spring.datasource.url=jdbc:mysql://localhost:3306/nsm?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
-spring.datasource.username=root
-# TODO: 请替换为你本地数据库的密码
-spring.datasource.password=your_password
+### 1. 环境准备
+确保本地已安装以下环境：
+* **JDK 1.8+**
+* **MySQL 8.0+**
+* **Node.js 16.0+**
+* **Python 3.x** (仅用于生成模拟测试数据，可选)
+
+### 2. 数据库初始化
+
+请登录 MySQL，创建一个名为 `nsm` 的数据库，并执行初始化 SQL。
+
+```sql
+CREATE DATABASE nsm CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE nsm;
+-- (此处请导入项目根目录下的 nsm_init.sql，或使用下方提供的建表语句)
 ```
 
-### 2. 环境依赖
+### 3. 后端启动 (Server)
 
-详细依赖清单见根目录 `pom.xml`。确保本地已安装 JDK 1.8+ 及 Maven 环境。
+1. 修改配置文件 `src/main/resources/application.properties`：
 
-### 3. 启动方式
+   Properties
 
-运行入口类： `.\src\main\java\com\bzh\nwpusurvivalmanual\Application.java`
+   ```
+   spring.datasource.url=jdbc:mysql://localhost:3306/nsm?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+   spring.datasource.username=root
+   spring.datasource.password=你的数据库密码  <-- 必须修改这里
+   ```
 
-- 服务默认端口：`localhost:8088`
-- 接口测试：项目中 `http test` 目录下包含部分 `.http` 请求文件，可使用 IntelliJ IDEA 自带的 HTTP Client 进行接口调试。
+2. 使用 IDEA 打开项目，运行 `NwpuSurvivalManualApplication.java`。
 
-## 📂 架构分层说明
+3. 看到 `Started NwpuSurvivalManualApplication` 即启动成功（端口 8088）。
 
-本项目采用经典的分层架构设计，确保高内聚低耦合：
+### 4. 前端启动 (Client)
 
-| **目录**       | **说明**                                                     |
-| -------------- | ------------------------------------------------------------ |
-| **controller** | **控制层**：处理前端 HTTP 请求，负责参数校验与响应封装       |
-| **service**    | **业务逻辑层**：封装核心业务逻辑，处理事务控制               |
-| **mapper**     | **持久层**：基于 MyBatis 的 DAO 接口，负责 SQL 映射与数据库交互 |
-| **entity**     | **PO (Persistent Object)**：与数据库表结构一一对应的实体类   |
-| **model**      | **VO/DTO**：用于业务传输或视图展示的聚合模型                 |
-| **config**     | **全局配置**：包含 CORS 跨域设置、拦截器配置等               |
+Bash
 
-## 💡 数据库设计亮点
+```
+cd web
+npm install     # 安装依赖
+npm run dev     # 启动开发服务器
+```
 
-采用了规范化设计（3NF）减少数据冗余。
+访问终端显示的地址（通常是 `http://localhost:5173`）。
 
-针对高频查询字段建立了索引优化。
+### 5. ⚡ 数据极速填充 
+
+为了展示最佳效果，建议使用 Python 脚本生成“百万级”模拟数据，而非手动录入。
+
+1. 进入 `crawler` 目录。
+2. 安装依赖：`pip install mysqlclient faker`。
+3. 依次运行脚本：
+   - `python mock_courses.py`：生成 100+ 门逼真的计算机课程。
+   - `python insertRelation.py`：构建课程间的先修关系网。
+   - `python fix_graph.py`：自动注入“人工智能”、“Web开发”等标签，激活首页知识图谱。
+
+------
+
+## 📂 目录结构说明
+
+```
+Campus-Academic-Hub/
+├── crawler/                # [数据工程] Python 数据生成与处理脚本
+├── http test/              # [测试] API 接口测试文件
+├── src/                    # [后端] Spring Boot 核心代码
+│   ├── controller/         # 控制层 (Rest API)
+│   ├── entity/             # 实体类 (POJO)
+│   ├── mapper/             # 持久层 (MyBatis)
+│   └── service/            # 业务逻辑层
+├── web/                    # [前端] Vue3 + ElementPlus 工程
+│   ├── src/
+│   │   ├── api/            # Axios 请求封装
+│   │   ├── components/     # 公共组件 (Header, Sidebar)
+│   │   ├── views/          # 页面视图 (Dashboard, Forum, CourseTable)
+│   │   └── store/          # Pinia 状态管理
+└── readme.md               # 项目说明文档
+```
+
+## 🤝 贡献与反馈
+
+欢迎提交 Issue 或 Pull Request。 管理员默认账号：`1` / 密码：`123456`
+
